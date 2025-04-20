@@ -1,7 +1,3 @@
-#region
-# code:fatih.unal
-# date: 2025-04-21T00:03:34+03:00
-
 # 🚀 FthAdmin
 
 FthAdmin, modern yazılım geliştirme standartlarına uygun olarak Clean Architecture ve CQRS (Command Query Responsibility Segregation) desenleriyle hazırlanmış, genişletilebilir ve sürdürülebilir bir .NET (ASP.NET Core 9) altyapısı sunar.
