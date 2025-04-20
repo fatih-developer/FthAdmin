@@ -1,0 +1,3 @@
+Yeni oluşturulan her dosyanın en üstünde #region olmalı ve code:fatih.unal ve date: o anki zaman yazmalı. klasörlere gerek yok.
+Klasörlerin içinde .gitkeep dosyası istemiyorum.
+powershell scriplerini çoğul olarak ; ile ayır && ile değil.

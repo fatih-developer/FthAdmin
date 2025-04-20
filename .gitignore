@@ -1,0 +1,51 @@
+#region
+# code:fatih.unal
+# date: 2025-04-20T23:59:18+03:00
+
+# .NET build outputs
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Test results
+TestResults/
+
+# Publish outputs
+publish/
+
+# Secret files
+secrets.json
+appsettings.*.json
+
+# Paketler
+*.nupkg
+
+# Diğer
+_ReSharper*/
+*.vspscc
+*.vssscc
+
+# Temporary files
+~$*
+*.tmp
+
+# SonarQube
+.sonar/
