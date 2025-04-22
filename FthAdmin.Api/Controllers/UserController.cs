@@ -42,7 +42,7 @@ namespace FthAdmin.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteUser(string id)
         {
             var result = await _mediator.Send(new DeleteUserCommand { UserId = id });

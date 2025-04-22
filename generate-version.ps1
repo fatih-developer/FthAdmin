@@ -13,6 +13,5 @@ $folders = @(
 foreach ($folder in $folders) {
     Set-Content -Path (Join-Path $folder "Version.txt") -Value $version
 }
-Set-Content -Path "FthAdmin.Version.txt" -Value $version;
 Write-Host "Versiyon: $version"
 #endregion

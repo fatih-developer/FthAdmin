@@ -49,3 +49,5 @@ _ReSharper*/
 
 # SonarQube
 .sonar/
+*/FthAdmin.Version.txt
+

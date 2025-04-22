@@ -3,6 +3,11 @@
 mode: ContinuousDeployment
 tag-prefix: 'v'
 branches:
+  main:
+    regex: main
+    increment: Patch
+    track-merge-target: false
+    is-release-branch: true
   master:
     regex: master
     increment: Minor
