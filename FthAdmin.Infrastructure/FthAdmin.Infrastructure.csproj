@@ -30,7 +30,16 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FthAdmin.Persistence\FthAdmin.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\FthAdmin.Application\FthAdmin.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.0" />
   </ItemGroup>
 
   <Target Name="GenerateVersionForAllLayers" BeforeTargets="BeforeBuild">

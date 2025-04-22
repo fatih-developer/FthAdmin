@@ -6,6 +6,8 @@ using FthAdmin.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using FthAdmin.Application.Abstractions;
+using FthAdmin.Infrastructure.Services;
 
 namespace FthAdmin.Infrastructure
 {
@@ -29,6 +31,10 @@ namespace FthAdmin.Infrastructure
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(LoginCommandHandler).Assembly));
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(RefreshTokenCommandHandler).Assembly));
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(RevokeRefreshTokenCommandHandler).Assembly));
+
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IRoleService, RoleService>();
+
             return services;
         }
     }
