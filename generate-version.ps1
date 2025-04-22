@@ -1,7 +1,6 @@
 #region code: fatih.unal date: 2025-04-22
-# Build sırasında GitVersion ile versiyon numarasını alıp her katmanın altına bir dosyaya yazan script
-dotnet tool install --global GitVersion.Tool;
-$version = dotnet gitversion /showvariable FullSemVer;
+# Build sırasında her katmanın altına son git commit hash'ini yazan script
+$hash = git rev-parse --short HEAD
 $folders = @(
     "FthAdmin.Api",
     "FthAdmin.Application",
@@ -11,7 +10,7 @@ $folders = @(
     "FthAdmin.Persistence"
 )
 foreach ($folder in $folders) {
-    Set-Content -Path (Join-Path $folder "Version.txt") -Value $version
+    Set-Content -Path (Join-Path $folder "Version.txt") -Value $hash
 }
-Write-Host "Versiyon: $version"
+Write-Host "Versiyon: $hash"
 #endregion

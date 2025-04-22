@@ -51,3 +51,13 @@ _ReSharper*/
 .sonar/
 */FthAdmin.Version.txt
 
+*/Version.txt
+
+# AssemblyInfo.cs dosyaları
+*/FthAdmin.Api/Properties/AssemblyInfo.cs
+*/FthAdmin.Application/Properties/AssemblyInfo.cs
+*/FthAdmin.Core/Properties/AssemblyInfo.cs
+*/FthAdmin.Domain/Properties/AssemblyInfo.cs
+*/FthAdmin.Infrastructure/Properties/AssemblyInfo.cs
+*/FthAdmin.Persistence/Properties/AssemblyInfo.cs   
+FthAdmin.Persistence/Version.txt
