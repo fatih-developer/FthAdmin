@@ -1,0 +1,19 @@
+#region code: fatih.unal date: 2025-04-22
+# GitVersion yapılandırma dosyası
+mode: ContinuousDeployment
+tag-prefix: 'v'
+branches:
+  master:
+    regex: master
+    increment: Minor
+    track-merge-target: false
+    is-release-branch: true
+  develop:
+    regex: develop
+    increment: Patch
+    track-merge-target: false
+    is-release-branch: false
+ignore:
+  sha: []
+merge-message-formats: {}
+#endregion

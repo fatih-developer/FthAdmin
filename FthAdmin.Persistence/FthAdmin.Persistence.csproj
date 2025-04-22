@@ -1,7 +1,3 @@
-#region
-# code:fatih.unal
-# date: 2025-04-20T23:40:34+03:00
-
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
@@ -9,5 +5,28 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.5.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="9.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.4" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FthAdmin.Core\FthAdmin.Core.csproj" />
+    <ProjectReference Include="..\FthAdmin.Domain\FthAdmin.Domain.csproj" />
+		
+  </ItemGroup>
+
+  <Target Name="GenerateVersionForAllLayers" BeforeTargets="BeforeBuild">
+    <Exec Command="powershell -ExecutionPolicy Bypass -File &quot;$(MSBuildProjectDirectory)\..\generate-version.ps1&quot;" />
+  </Target>
 
 </Project>

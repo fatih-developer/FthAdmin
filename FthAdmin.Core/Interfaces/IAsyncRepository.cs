@@ -1,6 +1,4 @@
-#region
-# code:fatih.unal
-# date: 2025-04-20T23:54:24+03:00
+
 
 using System;
 using System.Collections.Generic;

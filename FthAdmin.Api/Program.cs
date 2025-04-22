@@ -1,49 +1,49 @@
-#region
-# code:fatih.unal
-# date: 2025-04-20T23:40:34+03:00
-
-#region
-# code:fatih.unal
-# date: 2025-04-20T23:40:34+03:00
+// code: fatih.unal date: 2025-04-21T16:39:30
+using FthAdmin.Api.ErrorHandling.Handlers;
+using FthAdmin.Api.ErrorHandling.Middlewares;
+using FthAdmin.Application.DependencyInjection;
+using FthAdmin.Infrastructure;
+using MediatR;
+using FthAdmin.Application.Features.Auth.Commands;
+using FthAdmin.Infrastructure.Features.Auth.Commands;
+using FthAdmin.Infrastructure.Identity;
+using FthAdmin.Infrastructure.Contexts;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+// Infrastructure ve Application servis kayıtları
+builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddApplicationServices();
+
+builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
+               .AddEntityFrameworkStores<AppIdentityDbContext>()
+               .AddDefaultTokenProviders();
+
+// Presentation katmanına özgü servisler
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// Hata yönetimi DI kaydı
+builder.Services.AddScoped<HttpExceptionHandler>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
+app.UseAuthorization();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+// Hata yönetimi middleware'i
+app.UseMiddleware<ExceptionMiddleware>();
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
+app.MapControllers();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
