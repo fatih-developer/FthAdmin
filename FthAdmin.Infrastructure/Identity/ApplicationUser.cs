@@ -1,7 +1,5 @@
-#region code:fatih.unal date: 2025-04-21T09:19:56
-using Microsoft.AspNet.Identity.EntityFramework;
+#region code: fatih.unal date: 2025-04-22
 using Microsoft.AspNetCore.Identity;
-
 
 namespace FthAdmin.Infrastructure.Identity
 {

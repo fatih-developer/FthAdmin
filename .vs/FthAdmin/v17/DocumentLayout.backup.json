@@ -1,20 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\FTH_DEV\\Projects\\FthAdmin\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{C1F877FE-4325-4081-8E07-4184234FF4FB}|FthAdmin.Application\\FthAdmin.Application.csproj|d:\\fth_dev\\projects\\fthadmin\\fthadmin.application\\features\\roles\\handlers\\rolehandlers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1F877FE-4325-4081-8E07-4184234FF4FB}|FthAdmin.Application\\FthAdmin.Application.csproj|solutionrelative:fthadmin.application\\features\\roles\\handlers\\rolehandlers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1F877FE-4325-4081-8E07-4184234FF4FB}|FthAdmin.Application\\FthAdmin.Application.csproj|d:\\fth_dev\\projects\\fthadmin\\fthadmin.application\\features\\users\\handlers\\userhandlers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1F877FE-4325-4081-8E07-4184234FF4FB}|FthAdmin.Application\\FthAdmin.Application.csproj|solutionrelative:fthadmin.application\\features\\users\\handlers\\userhandlers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{33371399-BC3A-4AD7-BAC6-34CBDAB14881}|FthAdmin.Api\\FthAdmin.Api.csproj|d:\\fth_dev\\projects\\fthadmin\\fthadmin.api\\fthadmin.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{33371399-BC3A-4AD7-BAC6-34CBDAB14881}|FthAdmin.Api\\FthAdmin.Api.csproj|solutionrelative:fthadmin.api\\fthadmin.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -22,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -47,45 +34,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:15:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RoleHandlers.cs",
-              "DocumentMoniker": "D:\\FTH_DEV\\Projects\\FthAdmin\\FthAdmin.Application\\Features\\Roles\\Handlers\\RoleHandlers.cs",
-              "RelativeDocumentMoniker": "FthAdmin.Application\\Features\\Roles\\Handlers\\RoleHandlers.cs",
-              "ToolTip": "D:\\FTH_DEV\\Projects\\FthAdmin\\FthAdmin.Application\\Features\\Roles\\Handlers\\RoleHandlers.cs",
-              "RelativeToolTip": "FthAdmin.Application\\Features\\Roles\\Handlers\\RoleHandlers.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAcwCoAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T10:00:41.518Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserHandlers.cs",
-              "DocumentMoniker": "D:\\FTH_DEV\\Projects\\FthAdmin\\FthAdmin.Application\\Features\\Users\\Handlers\\UserHandlers.cs",
-              "RelativeDocumentMoniker": "FthAdmin.Application\\Features\\Users\\Handlers\\UserHandlers.cs",
-              "ToolTip": "D:\\FTH_DEV\\Projects\\FthAdmin\\FthAdmin.Application\\Features\\Users\\Handlers\\UserHandlers.cs",
-              "RelativeToolTip": "FthAdmin.Application\\Features\\Users\\Handlers\\UserHandlers.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAQwA0AAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T09:59:38.447Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FthAdmin.Api",
-              "DocumentMoniker": "D:\\FTH_DEV\\Projects\\FthAdmin\\FthAdmin.Api\\FthAdmin.Api.csproj",
-              "RelativeDocumentMoniker": "FthAdmin.Api\\FthAdmin.Api.csproj",
-              "ToolTip": "D:\\FTH_DEV\\Projects\\FthAdmin\\FthAdmin.Api\\FthAdmin.Api.csproj",
-              "RelativeToolTip": "FthAdmin.Api\\FthAdmin.Api.csproj",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-04-22T09:59:16.694Z",
-              "EditorCaption": ""
             }
           ]
         }

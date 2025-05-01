@@ -1,4 +1,4 @@
-// code: fatih.unal date: 2025-04-21T16:39:30
+// code: fatih.unal date: 2025-04-22
 using FthAdmin.Api.ErrorHandling.Handlers;
 using FthAdmin.Api.ErrorHandling.Middlewares;
 using FthAdmin.Application.DependencyInjection;
@@ -9,6 +9,10 @@ using FthAdmin.Infrastructure.Features.Auth.Commands;
 using FthAdmin.Infrastructure.Identity;
 using FthAdmin.Infrastructure.Contexts;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using AutoMapper;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,14 +20,34 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddApplicationServices();
 
+// ServerRepository DI kaydı
+builder.Services.AddScoped<FthAdmin.Domain.Repositories.IGenericRepository<FthAdmin.Domain.Entities.Server, System.Guid>, FthAdmin.Persistence.Repositories.ServerRepository>();
+
 builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
                .AddEntityFrameworkStores<AppIdentityDbContext>()
                .AddDefaultTokenProviders();
+
+// JWT Authentication pipeline
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SuperSecretKey_12345")) // Bunu config'den oku
+        };
+    });
 
 // Presentation katmanına özgü servisler
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// AutoMapper servisi DI container'a eklendi
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // Hata yönetimi DI kaydı
 builder.Services.AddScoped<HttpExceptionHandler>();

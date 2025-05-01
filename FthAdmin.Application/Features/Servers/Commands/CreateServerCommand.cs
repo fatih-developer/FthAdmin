@@ -8,6 +8,7 @@ namespace FthAdmin.Application.Features.Servers.Commands
         public string Name { get; set; }
         public string IpAddress { get; set; }
         public string OperatingSystem { get; set; }
+        public string Description { get; set; } 
     }
 }
 #endregion

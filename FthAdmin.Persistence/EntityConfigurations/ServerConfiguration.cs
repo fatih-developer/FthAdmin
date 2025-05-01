@@ -23,6 +23,7 @@ namespace FthAdmin.Persistence.EntityConfigurations
             builder.Property(s => s.Hostname).HasMaxLength(100);
             builder.Property(s => s.Status).IsRequired();
             builder.Property(s => s.LastStatusCheck);
+            builder.Property(s => s.Description).HasMaxLength(250); 
             // Diğer ilişkiler ve property konfigürasyonları buraya eklenebilir
         }
     }

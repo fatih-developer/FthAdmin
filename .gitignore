@@ -5,6 +5,7 @@
 # .NET build outputs
 bin/
 obj/
+.vs/
 
 # User-specific files
 *.user
@@ -61,3 +62,9 @@ _ReSharper*/
 */FthAdmin.Infrastructure/Properties/AssemblyInfo.cs
 */FthAdmin.Persistence/Properties/AssemblyInfo.cs   
 FthAdmin.Persistence/Version.txt
+FthAdmin.Api/BuildNumber.txt
+FthAdmin.Application/BuildNumber.txt
+FthAdmin.Core/BuildNumber.txt
+FthAdmin.Domain/BuildNumber.txt
+FthAdmin.Infrastructure/BuildNumber.txt
+FthAdmin.Persistence/BuildNumber.txt

@@ -1,0 +1,58 @@
+<!-- code: fatih.unal date: 2025-04-24T13:12:18 -->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yedek Listesi</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+        .container { max-width: 900px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0001; padding: 32px; }
+        h1 { text-align: center; color: #2b3a67; }
+        table { width: 100%; border-collapse: collapse; margin-top: 24px; }
+        th, td { padding: 12px 8px; border-bottom: 1px solid #e0e0e0; text-align: left; }
+        th { background: #2b3a67; color: #fff; }
+        tr:hover { background: #f1f7ff; }
+        .loading { text-align: center; margin-top: 40px; color: #888; }
+        @media (max-width: 600px) {
+            .container { padding: 12px; }
+            table, th, td { font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Yedek Listesi</h1>
+        <div id="backup-list">
+            <div class="loading">Yükleniyor...</div>
+        </div>
+    </div>
+    <script>
+    // API endpointini buradan ayarlayın
+    const API_URL = '/api/backups';
+    async function fetchBackups() {
+        const backupList = document.getElementById('backup-list');
+        try {
+            const resp = await fetch(API_URL);
+            if (!resp.ok) throw new Error('API hatası: ' + resp.status);
+            const data = await resp.json();
+            if (!Array.isArray(data) || data.length === 0) {
+                backupList.innerHTML = '<div class="loading">Kayıt bulunamadı.</div>';
+                return;
+            }
+            let html = '<table><thead><tr>';
+            html += '<th>#</th><th>Dosya Adı</th><th>Yüklenme Tarihi</th><th>Database</th>';
+            html += '</tr></thead><tbody>';
+            data.forEach((item, idx) => {
+                html += `<tr><td>${idx+1}</td><td>${item.filePath || item.name || '-'}</td><td>${item.createdAt ? new Date(item.createdAt).toLocaleString('tr-TR') : '-'}</td><td>${item.database?.name || '-'}</td></tr>`;
+            });
+            html += '</tbody></table>';
+            backupList.innerHTML = html;
+        } catch (err) {
+            backupList.innerHTML = '<div class="loading">Hata: ' + err.message + '</div>';
+        }
+    }
+    fetchBackups();
+    </script>
+</body>
+</html>

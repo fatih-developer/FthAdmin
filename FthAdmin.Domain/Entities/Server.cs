@@ -10,7 +10,7 @@ namespace FthAdmin.Domain.Entities
     {
         protected Server() { }
 
-        public Server(string name, IpAddress ipAddress, string operatingSystem)
+        public Server(string name, IpAddress ipAddress, string operatingSystem, string description)
         {
             Id = Guid.NewGuid();
             if (string.IsNullOrWhiteSpace(name))
@@ -22,6 +22,7 @@ namespace FthAdmin.Domain.Entities
             Name = name;
             IpAddress = ipAddress;
             OperatingSystem = operatingSystem;
+            Description = description;
             Status = ServerStatus.Unknown;
             LastStatusCheck = null;
         }
@@ -30,6 +31,7 @@ namespace FthAdmin.Domain.Entities
         public IpAddress IpAddress { get; private set; }
         public string Hostname { get; private set; }
         public string OperatingSystem { get; private set; }
+        public string Description { get; private set; } 
         public ServerStatus Status { get; private set; }
         public DateTime? LastStatusCheck { get; private set; }
 

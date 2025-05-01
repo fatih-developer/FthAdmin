@@ -1,0 +1,205 @@
+{
+  "info": {
+    "_postman_id": "fthadmin-api-20250424-0813",
+    "name": "FthAdmin.Api Full Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "FthAdmin.Api için tam kapsamlı Postman koleksiyonu. Tüm endpointler, örnek gövdeler ve ayrı değişkenler ile birlikte.\nEnvironments dosyası ile birlikte çalışır.\ncode: fatih.unal date: 2025-04-24T08:13:11"
+  },
+  "item": [
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"{{userEmail}}\",\n  \"password\": \"{{userPassword}}\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/auth/login",
+          "host": [ "{{baseUrl}}" ],
+          "path": [ "api", "auth", "login" ]
+        }
+      }
+    },
+    {
+      "name": "Auth - Register",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"{{userEmail}}\",\n  \"password\": \"{{userPassword}}\",\n  \"confirmPassword\": \"{{userPassword}}\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/auth/register",
+          "host": [ "{{baseUrl}}" ],
+          "path": [ "api", "auth", "register" ]
+        }
+      }
+    },
+    {
+      "name": "Auth - Me",
+      "request": {
+        "method": "GET",
+        "header": [ { "key": "Authorization", "value": "Bearer {{apiKey}}" } ],
+        "url": {
+          "raw": "{{baseUrl}}/api/auth/me",
+          "host": [ "{{baseUrl}}" ],
+          "path": [ "api", "auth", "me" ]
+        }
+      }
+    },
+    {
+      "name": "User - GetUsers",
+      "request": {
+        "method": "GET",
+        "header": [ { "key": "Authorization", "value": "Bearer {{apiKey}}" } ],
+        "url": {
+          "raw": "{{baseUrl}}/api/user",
+          "host": [ "{{baseUrl}}" ],
+          "path": [ "api", "user" ]
+        }
+      }
+    },
+    {
+      "name": "User - AssignRole",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Authorization", "value": "Bearer {{apiKey}}" }, { "key": "Content-Type", "value": "application/json" } ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": \"\",\n  \"roleName\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/user/assign-role",
+          "host": [ "{{baseUrl}}" ],
+          "path": [ "api", "user", "assign-role" ]
+        }
+      }
+    },
+    {
+      "name": "User - CreateUser",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Authorization", "value": "Bearer {{apiKey}}" }, { "key": "Content-Type", "value": "application/json" } ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"\",\n  \"password\": \"\",\n  \"roles\": [\"\"]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/user",
+          "host": [ "{{baseUrl}}" ],
+          "path": [ "api", "user" ]
+        }
+      }
+    },
+    {
+      "name": "User - DeleteUser",
+      "request": {
+        "method": "DELETE",
+        "header": [ { "key": "Authorization", "value": "Bearer {{apiKey}}" } ],
+        "url": {
+          "raw": "{{baseUrl}}/api/user/{{userId}}",
+          "host": [ "{{baseUrl}}" ],
+          "path": [ "api", "user", "{{userId}}" ]
+        }
+      }
+    },
+    {
+      "name": "Role - GetRoles",
+      "request": {
+        "method": "GET",
+        "header": [ { "key": "Authorization", "value": "Bearer {{apiKey}}" } ],
+        "url": {
+          "raw": "{{baseUrl}}/api/role",
+          "host": [ "{{baseUrl}}" ],
+          "path": [ "api", "role" ]
+        }
+      }
+    },
+    {
+      "name": "Role - CreateRole",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Authorization", "value": "Bearer {{apiKey}}" }, { "key": "Content-Type", "value": "application/json" } ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"roleName\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/role",
+          "host": [ "{{baseUrl}}" ],
+          "path": [ "api", "role" ]
+        }
+      }
+    },
+    {
+      "name": "Role - DeleteRole",
+      "request": {
+        "method": "DELETE",
+        "header": [ { "key": "Authorization", "value": "Bearer {{apiKey}}" } ],
+        "url": {
+          "raw": "{{baseUrl}}/api/role/{{roleId}}",
+          "host": [ "{{baseUrl}}" ],
+          "path": [ "api", "role", "{{roleId}}" ]
+        }
+      }
+    },
+    {
+      "name": "Servers - GetList",
+      "request": {
+        "method": "GET",
+        "header": [ { "key": "Authorization", "value": "Bearer {{apiKey}}" } ],
+        "url": {
+          "raw": "{{baseUrl}}/api/servers?pageIndex=1&pageSize=10",
+          "host": [ "{{baseUrl}}" ],
+          "path": [ "api", "servers" ],
+          "query": [
+            { "key": "pageIndex", "value": "1" },
+            { "key": "pageSize", "value": "10" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Servers - GetById",
+      "request": {
+        "method": "GET",
+        "header": [ { "key": "Authorization", "value": "Bearer {{apiKey}}" } ],
+        "url": {
+          "raw": "{{baseUrl}}/api/servers/{{serverId}}",
+          "host": [ "{{baseUrl}}" ],
+          "path": [ "api", "servers", "{{serverId}}" ]
+        }
+      }
+    },
+    {
+      "name": "Servers - Create",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Authorization", "value": "Bearer {{apiKey}}" }, { "key": "Content-Type", "value": "application/json" } ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"\",\n  \"ipAddress\": \"\",\n  \"description\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/servers",
+          "host": [ "{{baseUrl}}" ],
+          "path": [ "api", "servers" ]
+        }
+      }
+    },
+    {
+      "name": "Version - Get",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/version",
+          "host": [ "{{baseUrl}}" ],
+          "path": [ "api", "version" ]
+        }
+      }
+    }
+  ]
+}

@@ -12,7 +12,13 @@ namespace FthAdmin.Application.Features.Servers.Profiles
         public ServerProfile()
         {
             CreateMap<Server, ServerDto>();
-            CreateMap<CreateServerCommand, Server>();
+            CreateMap<CreateServerCommand, Server>()
+                .ConstructUsing(src => new Server(
+                    src.Name,
+                    new FthAdmin.Domain.ValueObjects.IpAddress(src.IpAddress),
+                    src.OperatingSystem,
+                    src.Description
+                ));
         }
     }
 }
